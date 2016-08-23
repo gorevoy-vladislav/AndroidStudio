@@ -1,0 +1,10 @@
+*.build
+build-stamp
+*.changes
+*.deb
+*.tar.gz
+changelog
+files
+*.debhelper.log
+*.substvars
+/*/debian/android-studio/*

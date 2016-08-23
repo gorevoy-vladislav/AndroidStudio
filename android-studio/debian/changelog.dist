@@ -1,0 +1,6 @@
+android-studio (0.0) stable; urgency=medium
+
+  * This is not a normal changelog file. It gets updated in the packaging progress, by update.sh
+  * The version is derived from the AndroidStudio-x.x.x.tar.gz
+
+ -- Vladislav Gorevoy <vladislavgorevoy@gmail.com>  Sun, 31 Jul 2016 01:51:29 +0700

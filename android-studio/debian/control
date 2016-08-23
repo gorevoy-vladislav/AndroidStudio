@@ -1,0 +1,15 @@
+Source: android-studio
+Section: vcs
+Priority: optional
+Maintainer: Vladislav Gorevoy <vladislavgorevoy@gmail.com>
+Build-Depends: debhelper (>= 5)
+Standards-Version: 3.8.4
+Homepage: https://developer.android.com/studio/index.html
+
+Package: android-studio
+Architecture: all
+Depends: openjdk-7-jre | oracle-java7-installer | oracle-java8-installer | oracle-java6-installer | sun-java7-jdk | sun-java8-jdk | sun-java6-jdk, libxcursor1, libxfixes3, libxi6, libxrender1, libxtst6
+Recommends: fonts-dejavu-core, fonts-freefont-otf, ttf-bitstream-vera, fonts-cantarell, fonts-droid-fallback, ttf-mscorefonts-installer
+Description: Android Studio provides the fastest tools for building apps on every type of Android device.
+ World-class code editing, debugging, performance tooling, a flexible build system, and an instant build/deploy
+ system all allow you to focus on building unique and high quality apps.

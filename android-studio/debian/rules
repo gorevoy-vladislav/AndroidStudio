@@ -1,0 +1,52 @@
+#!/usr/bin/make -f
+
+DEBVERS := $(shell dpkg-parsechangelog | sed -n -e 's/^Version: //p')
+VERSION := $(shell echo '$(DEBVERS)' | sed -e 's/^[[:digit:]]*://' -e 's/[~-].*//')
+
+BUILD=$(shell tar -tzf AndroidStudio-$(VERSION).tar.gz | head -n 1 | cut -d/ -f1)
+
+build: build-stamp
+build-stamp:
+	touch $@
+
+clean:
+	dh_testdir
+	dh_testroot
+	rm -f build-stamp
+	dh_clean
+
+install: build
+	dh_testdir
+	dh_testroot
+	dh_prep
+	dh_installdirs
+
+	# Untar and move upstream version
+	tar --directory $(CURDIR)/debian/android-studio/opt -xzf AndroidStudio-$(VERSION).tar.gz
+	mv $(CURDIR)/debian/android-studio/opt/$(BUILD) $(CURDIR)/debian/android-studio/opt/AndroidStudio
+
+	# Create desktop item for menu
+	cp studio.desktop $(CURDIR)/debian/android-studio/usr/share/applications
+
+	# Create symlink in /usr/bin
+	dh_link opt/AndroidStudio/bin/studio.sh usr/bin/studio
+
+	# Create gconf defaults for pbfile:// urls
+	cp studio.schemas $(CURDIR)/debian/android-studio/usr/share/gconf/schemas
+
+
+binary-indep: build install
+	dh_testdir -i
+	dh_testroot -i
+	dh_installdocs -i
+	dh_install -i
+	dh_fixperms -i
+	dh_installdeb -i
+	dh_gencontrol -i
+	dh_md5sums -i
+	dh_builddeb -i
+
+binary-arch: build install
+
+binary: binary-indep binary-arch
+.PHONY: build clean binary-indep binary-arch binary install
