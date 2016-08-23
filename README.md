@@ -29,7 +29,7 @@ debuild -us -uc -b
 
 ##Installing
 
-Install the packages with the `dpkg` command from root of this repo:
+Install the package with the `dpkg` command from root of this repo:
 
 ```sh
 cd ../
