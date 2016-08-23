@@ -14,8 +14,11 @@ sudo apt-get install devscripts debhelper
 
 1)   Download the `.zip` file from https://developer.android.com/, unzip it,  make `AndroidStudio-$VERSION.tar.gz` file and place it in
 the android-studio directory of this repo;
+
 2)   Run terminal in the root of this repo;
+
 3)   Create a new debian/changelog file using the provided update.sh script;
+
 4)   Build the package.
 
 ```sh
