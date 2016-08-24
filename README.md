@@ -1,5 +1,7 @@
 #Android Studio debianizer
 
+##Makes Android Studio .deb package from sources for Ubuntu/Debian
+
 ###Copyright by Vladislav Gorevoy
 
 <https://github.com/gorevoy-vladislav>
