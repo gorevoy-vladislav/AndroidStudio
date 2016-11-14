@@ -35,5 +35,5 @@ Install the package with the `dpkg` command from root of this repo:
 
 ```sh
 cd ../
-sudo dpkg -i ./*.deb...
+sudo dpkg -i ./*.deb
 ```
